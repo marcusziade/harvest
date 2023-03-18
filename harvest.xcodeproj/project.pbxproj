@@ -7,13 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A5C4C9929C60443002987CD /* PomodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C4C9729C60443002987CD /* PomodoroViewModel.swift */; };
+		5A5C4CAB29C62194002987CD /* PomodoroViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C4C9C29C6216B002987CD /* PomodoroViewModel_Tests.swift */; };
 		5AADEC2229C5E76200BF9F2F /* harvestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADEC2129C5E76200BF9F2F /* harvestApp.swift */; };
 		5AADEC2429C5E76200BF9F2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADEC2329C5E76200BF9F2F /* ContentView.swift */; };
 		5AADEC2629C5E76300BF9F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AADEC2529C5E76300BF9F2F /* Assets.xcassets */; };
 		5AADEC2929C5E76300BF9F2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AADEC2829C5E76300BF9F2F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5A5C4CA629C6218B002987CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AADEC1629C5E76200BF9F2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AADEC1D29C5E76200BF9F2F;
+			remoteInfo = harvest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5A5C4C9729C60443002987CD /* PomodoroViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel.swift; sourceTree = "<group>"; };
+		5A5C4C9C29C6216B002987CD /* PomodoroViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel_Tests.swift; sourceTree = "<group>"; };
+		5A5C4CA229C6218B002987CD /* harvestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = harvestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AADEC1E29C5E76200BF9F2F /* harvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = harvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AADEC2129C5E76200BF9F2F /* harvestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = harvestApp.swift; sourceTree = "<group>"; };
 		5AADEC2329C5E76200BF9F2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -22,6 +37,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A5C4C9F29C6218B002987CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AADEC1B29C5E76200BF9F2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				5AADEC1E29C5E76200BF9F2F /* harvest.app */,
+				5A5C4CA229C6218B002987CD /* harvestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,6 +76,8 @@
 			children = (
 				5AADEC2129C5E76200BF9F2F /* harvestApp.swift */,
 				5AADEC2329C5E76200BF9F2F /* ContentView.swift */,
+				5A5C4C9729C60443002987CD /* PomodoroViewModel.swift */,
+				5A5C4C9C29C6216B002987CD /* PomodoroViewModel_Tests.swift */,
 				5AADEC2529C5E76300BF9F2F /* Assets.xcassets */,
 				5AADEC2729C5E76300BF9F2F /* Preview Content */,
 			);
@@ -70,6 +95,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5A5C4CA129C6218B002987CD /* harvestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A5C4CA829C6218B002987CD /* Build configuration list for PBXNativeTarget "harvestTests" */;
+			buildPhases = (
+				5A5C4C9E29C6218B002987CD /* Sources */,
+				5A5C4C9F29C6218B002987CD /* Frameworks */,
+				5A5C4CA029C6218B002987CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A5C4CA729C6218B002987CD /* PBXTargetDependency */,
+			);
+			name = harvestTests;
+			productName = harvestTests;
+			productReference = 5A5C4CA229C6218B002987CD /* harvestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5AADEC1D29C5E76200BF9F2F /* harvest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AADEC2C29C5E76300BF9F2F /* Build configuration list for PBXNativeTarget "harvest" */;
@@ -97,6 +140,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					5A5C4CA129C6218B002987CD = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5AADEC1D29C5E76200BF9F2F;
+					};
 					5AADEC1D29C5E76200BF9F2F = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -116,11 +163,19 @@
 			projectRoot = "";
 			targets = (
 				5AADEC1D29C5E76200BF9F2F /* harvest */,
+				5A5C4CA129C6218B002987CD /* harvestTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5A5C4CA029C6218B002987CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AADEC1C29C5E76200BF9F2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,10 +188,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A5C4C9E29C6218B002987CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5C4CAB29C62194002987CD /* PomodoroViewModel_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AADEC1A29C5E76200BF9F2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A5C4C9929C60443002987CD /* PomodoroViewModel.swift in Sources */,
 				5AADEC2429C5E76200BF9F2F /* ContentView.swift in Sources */,
 				5AADEC2229C5E76200BF9F2F /* harvestApp.swift in Sources */,
 			);
@@ -144,7 +208,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5A5C4CA729C6218B002987CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AADEC1D29C5E76200BF9F2F /* harvest */;
+			targetProxy = 5A5C4CA629C6218B002987CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5A5C4CA929C6218B002987CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P4DQK6SRKR;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcusziade.harvestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/harvest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/harvest";
+			};
+			name = Debug;
+		};
+		5A5C4CAA29C6218B002987CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P4DQK6SRKR;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcusziade.harvestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/harvest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/harvest";
+			};
+			name = Release;
+		};
 		5AADEC2A29C5E76300BF9F2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -320,6 +428,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A5C4CA829C6218B002987CD /* Build configuration list for PBXNativeTarget "harvestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5C4CA929C6218B002987CD /* Debug */,
+				5A5C4CAA29C6218B002987CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5AADEC1929C5E76200BF9F2F /* Build configuration list for PBXProject "harvest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
