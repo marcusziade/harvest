@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5AADEC1D29C5E76200BF9F2F"
-               BuildableName = "harvest.app"
-               BlueprintName = "harvest"
-               ReferencedContainer = "container:harvest.xcodeproj">
+               BuildableName = "timeharvest.app"
+               BlueprintName = "timeharvest"
+               ReferencedContainer = "container:timeharvest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A5C4CA129C6218B002987CD"
-               BuildableName = "harvestTests.xctest"
-               BlueprintName = "harvestTests"
-               ReferencedContainer = "container:harvest.xcodeproj">
+               BuildableName = "timeharvestTests.xctest"
+               BlueprintName = "timeharvestTests"
+               ReferencedContainer = "container:timeharvest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AADEC1D29C5E76200BF9F2F"
-            BuildableName = "harvest.app"
-            BlueprintName = "harvest"
-            ReferencedContainer = "container:harvest.xcodeproj">
+            BuildableName = "timeharvest.app"
+            BlueprintName = "timeharvest"
+            ReferencedContainer = "container:timeharvest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -74,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AADEC1D29C5E76200BF9F2F"
-            BuildableName = "harvest.app"
-            BlueprintName = "harvest"
-            ReferencedContainer = "container:harvest.xcodeproj">
+            BuildableName = "timeharvest.app"
+            BlueprintName = "timeharvest"
+            ReferencedContainer = "container:timeharvest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
