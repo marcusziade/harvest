@@ -18,18 +18,31 @@ enum PomodoroState {
     }
 }
 
+enum TimerState {
+    case running, paused, stopped
+}
+
 final class PomodoroViewModel: ObservableObject {
     
-    @Published var timerString = ""
-    @Published var currentPomodoroState: PomodoroState = .work
-    @Published var pomodoroStats = PomodoroStats(completedSessions: 0, totalTimeSpent: 0)
+    @Published private(set) var currentPomodoroState: PomodoroState = .work
+    @Published private(set) var timerString = ""
+    @Published private(set) var timerState: TimerState = .stopped
+    @Published private(set) var pomodoroStats = PomodoroStats(completedSessions: 0, totalTimeSpent: 0)
+    
+    @Published var isResetPromptShown = false
     
     init() {
+        timerString = formatTimeInterval(currentPomodoroState.duration)
         loadStatsFromUserDefaults()
     }
     
     func startTimer() {
-        remainingTime = currentPomodoroState.duration
+        guard timerState != .running else { return }
+        
+        if timerState == .stopped {
+            remainingTime = currentPomodoroState.duration
+        }
+        timerState = .running
         
         timerSubscription?.cancel()
         timerSubscription = Timer.publish(every: 1, on: .main, in: .common)
@@ -43,15 +56,17 @@ final class PomodoroViewModel: ObservableObject {
                 }
             }
     }
-    
+
     func pauseTimer() {
+        timerState = .paused
         timerSubscription?.cancel()
     }
     
     func resetTimer() {
+        timerState = .stopped
         timerSubscription?.cancel()
-        timerString = formatTimeInterval(0)
         currentPomodoroState = .work
+        timerString = formatTimeInterval(currentPomodoroState.duration)
     }
     
     func formatTimeInterval(_ interval: TimeInterval) -> String {
@@ -62,6 +77,7 @@ final class PomodoroViewModel: ObservableObject {
     
     // MARK: Private
     
+    private var cancellables = Set<AnyCancellable>()
     private var timerSubscription: AnyCancellable?
     private var remainingTime: TimeInterval = 0
     private var sessionCount = 0

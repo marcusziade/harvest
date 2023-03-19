@@ -1,7 +1,7 @@
 import Combine
 import XCTest
 
-@testable import harvest
+@testable import timeharvest
 
 final class PomodoroViewModel_Tests: XCTestCase {
     
@@ -40,7 +40,6 @@ final class PomodoroViewModel_Tests: XCTestCase {
     
     func testStartTimer() {
         let expectation = XCTestExpectation(description: "Wait for timer to update")
-        viewModel.currentPomodoroState = .work
         viewModel.startTimer()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -51,32 +50,53 @@ final class PomodoroViewModel_Tests: XCTestCase {
         wait(for: [expectation], timeout: 3)
     }
     
-    func testPauseTimer() {
-        let expectation = XCTestExpectation(description: "Wait for timer to pause")
-        viewModel.currentPomodoroState = .work
+    func testPauseAndUnpauseTimer() {
+        let pauseExpectation = XCTestExpectation(description: "Wait for timer to pause")
+        let unpauseExpectation = XCTestExpectation(description: "Wait for timer to unpause")
         viewModel.startTimer()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.viewModel.pauseTimer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
+            viewModel.pauseTimer()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                XCTAssertEqual(self.viewModel.timerString, "24:58", "Timer is not pausing correctly")
-                expectation.fulfill()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
+                XCTAssertEqual(viewModel.timerString, "24:58", "Timer is not pausing correctly")
+                pauseExpectation.fulfill()
+                
+                viewModel.startTimer()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
+                    XCTAssertEqual(viewModel.timerString, "24:56", "Timer is not unpausing correctly")
+                    unpauseExpectation.fulfill()
+                }
             }
         }
         
-        wait(for: [expectation], timeout: 5)
+        wait(for: [pauseExpectation, unpauseExpectation], timeout: 10)
     }
     
     func testResetTimer() {
-        viewModel.currentPomodoroState = .work
         viewModel.startTimer()
-        viewModel.resetTimer()
+        XCTAssertEqual(viewModel.timerState, .running)
         
-        XCTAssertEqual(viewModel.timerString, "00:00", "Reset timer is not setting timerString to 00:00")
-        XCTAssertEqual(viewModel.currentPomodoroState, .work, "Reset timer is not setting currentPomodoroState to .work")
+        let pauseExpectation = XCTestExpectation(description: "Wait for timer to pause")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
+            viewModel.pauseTimer()
+            XCTAssertEqual(viewModel.timerState, .paused)
+            
+            let expectedRemainingTime = PomodoroState.work.duration - 2
+            XCTAssertEqual(viewModel.timerString, viewModel.formatTimeInterval(expectedRemainingTime), "Timer did not run for 2 seconds before pausing")
+            
+            viewModel.resetTimer()
+            XCTAssertEqual(viewModel.timerState, .stopped)
+            XCTAssertEqual(viewModel.currentPomodoroState, .work)
+            XCTAssertEqual(viewModel.timerString, viewModel.formatTimeInterval(PomodoroState.work.duration), "Timer did not reset correctly")
+            
+            pauseExpectation.fulfill()
+        }
+        
+        wait(for: [pauseExpectation], timeout: 10)
     }
-    
+
     // MARK: Private
     
     private var viewModel: PomodoroViewModel!
